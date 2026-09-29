@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07070a">
+  <meta name="description" content="Mystic Lounge — авторские миксы, уютное пространство и вечера без спешки.">
+  <title>Mystic Lounge — место, где город остаётся за дверью</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <!-- Address chooser -->
+  <div class="location-gate is-hidden" id="locationGate" role="dialog" aria-modal="true" aria-labelledby="locationTitle" aria-hidden="true">
+    <div class="location-gate-backdrop" data-close-location></div>
+    <div class="location-gate-panel">
+      <button class="location-close" id="locationClose" type="button" aria-label="Закрыть">×</button>
+      <div class="gate-brand"><img src="images/logo-mystic.png" alt="Mystic Lounge"></div>
+      <div class="location-gate-kicker"><span></span> WELCOME TO MYSTIC</div>
+      <h2 id="locationTitle">Выбери<br><em>своё пространство.</em></h2>
+      <p class="location-gate-lead">У нас два места. Выбери адрес, который тебе ближе. После выбора сайт покажет актуальный контент и способ бронирования.</p>
+
+      <div class="location-choices">
+        <button class="location-choice" type="button" data-location="ordzhonikidze">
+          <span class="choice-index">01</span>
+          <span class="choice-city">MYSTIC LOUNGE</span>
+          <strong>Орджоникидзе, 27</strong>
+          <small>14:00 — 03:00</small>
+          <span class="choice-cta">Выбрать <b>↗</b></span>
+        </button>
+
+        <button class="location-choice" type="button" data-location="konstantinova">
+          <span class="choice-index">02</span>
+          <span class="choice-city">NEW SPACE</span>
+          <strong>Академика Константинова, 1 к. 1</strong>
+          <small>14:00 — 03:00</small>
+          <span class="choice-cta">Выбрать <b>↗</b></span>
+        </button>
+      </div>
+      <div class="location-gate-note"><span>⌖</span> Адрес можно изменить в шапке сайта</div>
+    </div>
+  </div>
+
+  <header class="site-header" id="top">
+    <a href="#top" class="brand"><img src="images/logo-mystic.png" alt="Mystic Lounge"></a>
+    <nav class="desktop-nav">
+      <a href="#about">Атмосфера</a>
+      <a href="#story">История</a>
+      <a href="#menu">Меню</a>
+      <a href="#locations">Адреса</a>
+    </nav>
+    <button class="selected-location" id="selectedLocation" type="button" aria-label="Изменить адрес">
+      <span class="location-dot"></span><span id="selectedLocationText">Выбрать адрес</span><span class="selected-location-arrow">⌄</span>
+    </button>
+    <a class="header-book booking-link" id="headerBooking" href="tel:+79818015577">Забронировать <span>↗</span></a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span></button>
+  </header>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#about">Атмосфера</a>
+    <a href="#story">История</a>
+    <a href="#menu">Меню</a>
+    <a href="#locations">Адреса</a>
+    <button class="mobile-location" id="mobileLocation" type="button">Изменить адрес</button>
+    <a class="mobile-book booking-link" id="mobileBooking" href="tel:+79818015577">Забронировать столик</a>
+  </div>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-vignette"></div>
+      <div class="hero-smoke smoke-one"></div>
+      <div class="hero-smoke smoke-two"></div>
+      <div class="hero-content reveal visible">
+        <div class="eyebrow"><span></span> MYSTIC LOUNGE</div>
+        <h1>Место, где город<br>остаётся <em>за дверью.</em></h1>
+        <p class="hero-lead">Авторские миксы, мягкий свет и вечера, которым не хочется ставить конец.</p>
+        <button class="hero-location-chip" id="heroLocationChip" type="button"><span class="selected-dot"></span><span id="heroLocationText">Выбрать адрес</span><small>изменить</small></button>
+        <div class="hero-actions">
+          <a href="tel:+79818015577" class="btn btn-gold booking-link" id="heroBooking">Забронировать <span>↗</span></a>
+          <a href="#menu" class="btn btn-ghost">Открыть меню</a>
+        </div>
+        <div class="hero-hours">
+          <div class="hero-hours-title">РЕЖИМ РАБОТЫ</div>
+          <div class="hero-hours-row"><span>Пн–Чт</span><strong>14:00 — 02:00</strong></div>
+          <div class="hero-hours-row"><span>Пт–Вс</span><strong>14:00 — 03:00</strong></div>
+          <div class="hero-age"><span>18+</span><small>ВХОД ТОЛЬКО ДЛЯ ВЗРОСЛЫХ</small></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ATMOSPHERE -->
+    <section class="section atmosphere" id="about">
+      <div class="section-intro reveal">
+        <div class="section-kicker"><span>01</span> ATMOSPHERE</div>
+        <h2>Здесь не нужно<br><em>никуда спешить.</em></h2>
+        <p>Mystic Lounge — пространство, где вечер замедляется, разговоры становятся длиннее, а город остаётся где-то далеко за дверью.</p>
+      </div>
+
+      <div class="atmo-set atmo-set-ordzhonikidze">
+        <div class="atmosphere-grid">
+          <article class="atmo-card large reveal"><img src="images/atmosphere-1.jpg" alt="Атмосфера Mystic Lounge"><div class="atmo-overlay"></div><div class="atmo-top"><span>01</span><i>FLAVOUR</i></div><div class="atmo-copy"><h3>Авторские<br>миксы</h3><p>Сочетания вкусов, которые хочется попробовать ещё раз.</p></div><span class="card-arrow">↗</span></article>
+          <article class="atmo-card reveal"><img src="images/atmosphere-2.jpg" alt="Интерьер Mystic Lounge"><div class="atmo-overlay"></div><div class="atmo-top"><span>02</span><i>MOOD</i></div><div class="atmo-copy"><h3>Мягкий<br>свет</h3><p>Тёплый свет, приглушённая музыка и пространство для своих.</p></div><span class="card-arrow">↗</span></article>
+          <article class="atmo-card reveal"><img src="images/atmosphere-3.jpg" alt="Вечер в Mystic Lounge"><div class="atmo-overlay"></div><div class="atmo-top"><span>03</span><i>MOMENT</i></div><div class="atmo-copy"><h3>Вечера<br>без спешки</h3><p>Для разговоров, встреч и моментов, которые хочется продлить.</p></div><span class="card-arrow">↗</span></article>
+        </div>
+      </div>
+
+      <div class="atmo-set atmo-set-konstantinova">
+        <div class="atmosphere-grid">
+          <article class="atmo-card large reveal"><img src="images/konstantinova-1.jpg" alt="Интерьер Mystic Lounge — Академика Константинова"><div class="atmo-overlay"></div><div class="atmo-top"><span>01</span><i>FLAVOUR</i></div><div class="atmo-copy"><h3>Авторские<br>миксы</h3><p>Настроение, которое начинается с правильного вкуса.</p></div><span class="card-arrow">↗</span></article>
+          <article class="atmo-card reveal"><img src="images/konstantinova-2.png" alt="Интерьер Mystic Lounge — Академика Константинова"><div class="atmo-overlay"></div><div class="atmo-top"><span>02</span><i>MOOD</i></div><div class="atmo-copy"><h3>Мягкий<br>свет</h3><p>Тёмные оттенки, дым и спокойная атмосфера.</p></div><span class="card-arrow">↗</span></article>
+          <article class="atmo-card reveal"><img src="images/konstantinova-3.png" alt="Зона отдыха Mystic Lounge — Академика Константинова"><div class="atmo-overlay"></div><div class="atmo-top"><span>03</span><i>MOMENT</i></div><div class="atmo-copy"><h3>Вечера<br>без спешки</h3><p>Место, где можно просто остаться ещё ненадолго.</p></div><span class="card-arrow">↗</span></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY -->
+    <section class="section story" id="story">
+      <div class="story-orb"></div>
+      <div class="story-top reveal"><div class="section-kicker"><span>02</span> MYSTIC STORY</div><div class="open-badge"><i></i> ОТКРЫТО КАЖДЫЙ ДЕНЬ</div></div>
+      <div class="story-main">
+        <div class="story-title reveal"><small>ПРОСТРАНСТВО ДЛЯ СВОИХ</small><h2>Вечер, который<br><em>никуда не торопится.</em></h2></div>
+        <div class="story-text reveal"><p>Мы создали Mystic Lounge как место, куда приходят не «посидеть часик», а действительно отдохнуть.</p><p>Выбирай вкус, место и компанию. Остальное пусть останется за дверью.</p></div>
+      </div>
+      <div class="story-events">
+        <article class="story-event reveal"><span>01</span><b>◈</b><small>FLAVOUR</small><h3>Авторские<br>миксы</h3><p>Сочетания вкусов и настроений, собранные мастерами Mystic Lounge.</p></article>
+        <article class="story-event reveal"><span>02</span><b>✦</b><small>DETAILS</small><h3>Внимание<br>к деталям</h3><p>Свет, музыка, посадка, чай и детали вокруг — всё работает на один вечер.</p></article>
+        <article class="story-event reveal"><span>03</span><b>○</b><small>LOUNGE</small><h3>Зона<br>для своих</h3><p>Для разговоров, встреч, игр и тех самых вечеров, которые заканчиваются поздно.</p></article>
+      </div>
+    </section>
+
+    <!-- QUIET HOUR -->
+    <section class="quiet" id="quiet">
+      <div class="quiet-image"></div><div class="quiet-overlay"></div>
+      <div class="quiet-content reveal">
+        <div class="section-kicker"><span>03</span> QUIET HOUR</div>
+        <div class="quiet-time">14:00 <i>—</i> 19:00</div>
+        <h2>Тихий<br><em>час.</em></h2>
+        <p>Кальян — <strong>1 390 ₽</strong></p>
+        <div class="bonus-box"><span>ТЫ ВЫБИРАЕШЬ БОНУС</span><div><b>Чай</b><b>Печенье</b><b>Усиление кальяна</b></div></div>
+      </div>
+    </section>
+
+    <!-- MENU -->
+    <section class="section menu-section" id="menu">
+      <div class="menu-heading reveal"><div><div class="section-kicker"><span>04</span> MENU</div><h2>Выбирай<br><em>своё.</em></h2></div><p>Меню переключается вместе с выбранным адресом.</p></div>
+
+      <div class="menu-set menu-set-ordzhonikidze">
+        <div class="menu-tabs" role="tablist">
+          <button class="active" data-filter="all">Всё</button><button data-filter="doner">Донер</button><button data-filter="kutab">Кутабы</button><button data-filter="salads">Салаты</button><button data-filter="soups">Супы</button><button data-filter="other">Остальное</button>
+        </div>
+        <div class="menu-grid">
+          <article class="food-card reveal" data-category="doner"><div class="food-image"><img src="images/doner-meat.jpg" onerror="this.src='images/hero-lounge.jpg'" alt="Донер с мясом"><span>↗</span></div><div class="food-info"><div><h3>Донер с мясом</h3><small>300 г</small></div><strong>600 ₽</strong></div></article>
+          <article class="food-card reveal" data-category="doner"><div class="food-image"><img src="images/doner-chicken.jpg" onerror="this.src='images/hero-lounge.jpg'" alt="Донер с курицей"><span>↗</span></div><div class="food-info"><div><h3>Донер с курицей</h3><small>300 г</small></div><strong>520 ₽</strong></div></article>
+          <article class="food-card reveal" data-category="other"><div class="food-image"><img src="images/burger.jpg" onerror="this.src='images/hero-lounge.jpg'" alt="Гамбургер"><span>↗</span></div><div class="food-info"><div><h3>Гамбургер</h3><small>200 г</small></div><strong>365 ₽</strong></div></article>
+          <article class="food-card reveal" data-category="kutab"><div class="food-image"><img src="images/kutab.jpg" onerror="this.src='images/hero-lounge.jpg'" alt="Кутаб по-кавказски"><span>↗</span></div><div class="food-info"><div><h3>Кутаб по-кавказски</h3><small>2 шт. · 200 г</small></div><strong>550 ₽</strong></div></article>
+          <article class="food-card reveal" data-category="other"><div class="food-image"><img src="images/sandwich.jpg" onerror="this.src='images/hero-lounge.jpg'" alt="Сэндвич с курицей и сыром"><span>↗</span></div><div class="food-info"><div><h3>Сэндвич с курицей и сыром</h3><small>180 г</small></div><strong>510 ₽</strong></div></article>
+          <article class="food-card reveal" data-category="other"><div class="food-image"><img src="images/lavash.jpg" onerror="this.src='images/hero-lounge.jpg'" alt="Лаваш"><span>↗</span></div><div class="food-info"><div><h3>Лаваш</h3><small>90 г</small></div><strong>160 ₽</strong></div></article>
+          <article class="food-card reveal" data-category="soups"><div class="food-image"><img src="images/chicken-noodle-soup.jpg" onerror="this.src='images/hero-lounge.jpg'" alt="Куриный суп с домашней лапшой"><span>↗</span></div><div class="food-info"><div><h3>Куриный суп с домашней лапшой</h3><small>350 г</small></div><strong>450 ₽</strong></div></article>
+          <article class="food-card reveal" data-category="other"><div class="food-image"><img src="images/iziburger.jpg" onerror="this.src='images/hero-lounge.jpg'" alt="Изибургер"><span>↗</span></div><div class="food-info"><div><h3>Изибургер</h3><small>250 г</small></div><strong>455 ₽</strong></div></article>
+          <article class="food-card reveal" data-category="salads"><div class="food-image"><img src="images/greek-salad.jpg" onerror="this.src='images/hero-lounge.jpg'" alt="Салат Греческий"><span>↗</span></div><div class="food-info"><div><h3>Салат «Греческий»</h3><small>300 г</small></div><strong>400 ₽</strong></div></article>
+          <article class="food-card reveal" data-category="salads"><div class="food-image"><img src="images/choban-salad.jpg" onerror="this.src='images/hero-lounge.jpg'" alt="Салат Чобан"><span>↗</span></div><div class="food-info"><div><h3>Салат Чобан</h3><small>300 г</small></div><strong>350 ₽</strong></div></article>
+          <article class="food-card reveal" data-category="salads"><div class="food-image"><img src="images/caesar-chicken.jpg" onerror="this.src='images/hero-lounge.jpg'" alt="Цезарь с курицей"><span>↗</span></div><div class="food-info"><div><h3>Салат «Цезарь» с курицей</h3><small>250 г</small></div><strong>510 ₽</strong></div></article>
+          <article class="food-card reveal" data-category="salads"><div class="food-image"><img src="images/caesar-shrimp.jpg" onerror="this.src='images/hero-lounge.jpg'" alt="Цезарь с креветками"><span>↗</span></div><div class="food-info"><div><h3>Салат «Цезарь» с креветками</h3><small>250 г</small></div><strong>635 ₽</strong></div></article>
+          <article class="food-card reveal" data-category="soups"><div class="food-image"><img src="images/lentil-soup.jpg" onerror="this.src='images/hero-lounge.jpg'" alt="Чечевичный крем-суп"><span>↗</span></div><div class="food-info"><div><h3>Чечевичный крем-суп</h3><small>350 г</small></div><strong>380 ₽</strong></div></article>
+          <article class="food-card reveal" data-category="soups"><div class="food-image"><img src="images/mushroom-soup.jpg" onerror="this.src='images/hero-lounge.jpg'" alt="Грибной крем-суп"><span>↗</span></div><div class="food-info"><div><h3>Грибной крем-суп</h3><small>350 г</small></div><strong>410 ₽</strong></div></article>
+        </div>
+      </div>
+
+      <div class="menu-set menu-set-konstantinova">
+        <div class="konst-menu-shell">
+          <div class="konst-menu-head reveal">
+            <div>
+              <div class="konst-menu-kicker"><span></span> АКАДЕМИКА КОНСТАНТИНОВА · MENU</div>
+              <h3>Меню <em>вечера.</em></h3>
+              <p>Кальяны, напитки, сладости и снеки — всё важное собрали в одном месте.</p>
+            </div>
+            <div class="konst-menu-stamp"><b>M</b><span>18+</span></div>
+          </div>
+
+          <div class="menu-tabs konst-tabs" role="tablist">
+            <button class="active" data-filter="all">Всё меню</button>
+            <button data-filter="kaliany">Кальяны</button>
+            <button data-filter="drinks">Напитки</button>
+            <button data-filter="sweets">Сладости и снеки</button>
+          </div>
+
+          <div class="konst-menu-grid">
+            <article class="konst-menu-card reveal" data-category="kaliany">
+              <div class="konst-card-head"><div><span>01</span><small>HOOKAH</small></div><h4>Бизнес кальян <i>до 18:00</i></h4></div>
+              <ul>
+                <li><span>Кальян на безтабачной основе</span><b>990 ₽</b></li>
+                <li><span>Кальян на табачной основе</span><b>1 190 ₽</b></li>
+              </ul>
+            </article>
+
+            <article class="konst-menu-card reveal" data-category="kaliany">
+              <div class="konst-card-head"><div><span>02</span><small>HOOKAH</small></div><h4>Кальяны <i>после 18:00</i></h4></div>
+              <ul>
+                <li><span>Кальян на безтабачной основе</span><b>1 190 ₽</b></li>
+                <li><span>Кальян на табачной основе</span><b>1 290 ₽</b></li>
+              </ul>
+            </article>
+
+            <article class="konst-menu-card reveal" data-category="kaliany">
+              <div class="konst-card-head"><div><span>03</span><small>EXTRA</small></div><h4>Добавки к кальяну</h4></div>
+              <ul>
+                <li><span>Сигарный табачный лист</span><b>590 ₽</b></li>
+                <li><span>Чаша на фрукте</span><b>690 ₽</b></li>
+              </ul>
+            </article>
+
+            <article class="konst-menu-card reveal" data-category="kaliany">
+              <div class="konst-card-head"><div><span>04</span><small>DETAIL</small></div><h4>Дополнительно</h4></div>
+              <ul><li><span>Замена чаши</span><b>990 ₽</b></li></ul>
+            </article>
+
+            <article class="konst-menu-card reveal" data-category="drinks">
+              <div class="konst-card-head"><div><span>05</span><small>TEA</small></div><h4>Чай</h4></div>
+              <ul>
+                <li><span>Классический (чёрный / зелёный)</span><b>300 ₽</b></li>
+                <li><span>Молочный улун</span><b>590 ₽</b></li>
+                <li><span>Фруктовый</span><b>490 ₽</b></li>
+                <li><span>Самовар (варенье, орехи)</span><b>2 000 ₽</b></li>
+              </ul>
+            </article>
+
+            <article class="konst-menu-card reveal" data-category="drinks">
+              <div class="konst-card-head"><div><span>06</span><small>COFFEE</small></div><h4>Кофе</h4></div>
+              <ul>
+                <li><span>Капучино</span><b>250 ₽</b></li>
+                <li><span>Латте</span><b>250 ₽</b></li>
+                <li><span>Эспрессо</span><b>200 ₽</b></li>
+                <li><span>Американо</span><b>200 ₽</b></li>
+              </ul>
+            </article>
+
+            <article class="konst-menu-card wide reveal" data-category="drinks">
+              <div class="konst-card-head"><div><span>07</span><small>SOFT DRINKS</small></div><h4>Холодные напитки</h4></div>
+              <ul class="two-col-list">
+                <li><span>Добрый Кола 1 л</span><b>250 ₽</b></li>
+                <li><span>Добрый Фанта 1 л</span><b>250 ₽</b></li>
+                <li><span>Добрый Кола</span><b>150 ₽</b></li>
+                <li><span>Добрый Фанта</span><b>150 ₽</b></li>
+                <li><span>Натахтари</span><b>200 ₽</b></li>
+                <li><span>Домашний лимонад (стакан)</span><b>290 ₽</b></li>
+                <li><span>Домашний лимонад (графин)</span><b>690 ₽</b></li>
+                <li><span>Энергетик 0.5</span><b>200 ₽</b></li>
+                <li><span>Энергетик 0.3</span><b>150 ₽</b></li>
+                <li><span>Вода</span><b>100 ₽</b></li>
+              </ul>
+            </article>
+
+            <article class="konst-menu-card reveal" data-category="sweets">
+              <div class="konst-card-head"><div><span>08</span><small>SNACKS</small></div><h4>Снеки</h4></div>
+              <ul>
+                <li><span>Солёная булочка (шоргогал)</span><b>170 ₽</b></li>
+                <li><span>Орехи (ассорти)</span><b>350 ₽</b></li>
+                <li><span>Чипсы</span><b>300 ₽</b></li>
+              </ul>
+            </article>
+
+            <article class="konst-menu-card reveal" data-category="sweets">
+              <div class="konst-card-head"><div><span>09</span><small>SWEETS</small></div><h4>Сладости</h4></div>
+              <ul>
+                <li><span>Пахлава Бакинская</span><b>250 ₽</b></li>
+                <li><span>Пахлава Турецкая</span><b>350 ₽</b></li>
+                <li><span>Шоколадная плитка</span><b>300 ₽</b></li>
+                <li><span>Шоколадный батончик</span><b>250 ₽</b></li>
+                <li><span>Варенье</span><b>450 ₽</b></li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="konst-menu-bottom reveal">
+            <span>Пн–Чт · 14:00 — 02:00</span>
+            <strong>Пт–Вс · 14:00 — 03:00</strong>
+            <em>18+</em>
+          </div>
+        </div>
+      </div>
+
+    <!-- LOCATIONS -->
+    <section class="section locations" id="locations">
+      <div class="locations-heading reveal"><div class="section-kicker"><span>05</span> FIND US</div><h2>Выбирай<br><em>точку.</em></h2></div>
+      <p class="locations-lead reveal">Нажми на нужную карту — откроется маршрут в Яндекс Картах или 2ГИС.</p>
+
+      <div class="locations-grid">
+        <article class="location-card active reveal" data-location="ordzhonikidze">
+          <div class="location-top"><span>01</span><small>ПЕРВОЕ ПРОСТРАНСТВО</small></div>
+          <div class="location-main">
+            <h3>Орджоникидзе,<br><em>27</em></h3>
+            <p>Пн–Чт 14:00 — 02:00<br>Пт–Вс 14:00 — 03:00</p>
+          </div>
+          <div class="location-actions">
+            <div class="map-actions-row">
+              <a class="map-action" href="https://yandex.ru/maps/?text=Орджоникидзе%2C%2027" target="_blank" rel="noopener noreferrer">Яндекс <span>↗</span></a>
+              <a class="map-action secondary" href="https://2gis.ru/search/Орджоникидзе%2C%2027" target="_blank" rel="noopener noreferrer">2ГИС <span>↗</span></a>
+            </div>
+            <a class="phone-action" href="tel:+79818015577">8 981 801-55-77 <span>↗</span></a>
+          </div>
+        </article>
+
+        <article class="location-card reveal" data-location="konstantinova">
+          <div class="location-top"><span>02</span><small>НОВОЕ ПРОСТРАНСТВО</small></div>
+          <div class="location-main">
+            <h3>Академика<br><em>Константинова, 1 к. 1</em></h3>
+            <p>Пн–Чт 14:00 — 02:00<br>Пт–Вс 14:00 — 03:00</p>
+          </div>
+          <div class="location-actions">
+            <div class="map-actions-row">
+              <a class="map-action" href="https://yandex.ru/maps/?text=Академика%20Константинова%2C%201%20к.%201" target="_blank" rel="noopener noreferrer">Яндекс <span>↗</span></a>
+              <a class="map-action secondary" href="https://2gis.ru/search/Академика%20Константинова%2C%201%20к.%201" target="_blank" rel="noopener noreferrer">2ГИС <span>↗</span></a>
+            </div>
+            <a class="phone-action booking-link" href="https://yandex.ru/business/widget/request/company/185627883676" target="_blank" rel="noopener noreferrer">Забронировать онлайн <span>↗</span></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="hours-line reveal"><span>ЧАСЫ РАБОТЫ</span><strong>Пн–Чт 14:00 — 02:00 · Пт–Вс 14:00 — 03:00</strong><span>18+</span></div>
+    </section>
+
+    <!-- FINAL -->
+    <section class="final-cta">
+      <div class="final-bg"></div><div class="final-overlay"></div>
+      <div class="final-content reveal"><div class="section-kicker"><span>06</span> MYSTIC LOUNGE</div><h2>Вечер<br><em>начинается здесь.</em></h2><p>Приходи за атмосферой. Оставайся ради момента.</p><a href="tel:+79818015577" class="btn btn-gold booking-link" id="finalBooking">Забронировать столик <span>↗</span></a></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-main"><a href="#top" class="footer-logo"><img src="images/logo-mystic.png" alt="Mystic Lounge"></a><div class="footer-links"><a href="#about">Атмосфера</a><a href="#menu">Меню</a><a href="#locations">Адреса</a></div><a href="tel:+79818015577" class="footer-phone">8 981 801-55-77</a></div>
+    <div class="footer-bottom"><span>© 2026 MYSTIC LOUNGE</span><span>14:00 — 03:00</span><span>GOOD EVENINGS ONLY</span></div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
