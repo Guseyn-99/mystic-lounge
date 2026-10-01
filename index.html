@@ -30,7 +30,7 @@
           <span class="choice-index">01</span>
           <span class="choice-city">MYSTIC LOUNGE</span>
           <strong>Орджоникидзе, 27</strong>
-          <small>14:00 — 03:00</small>
+          <small>Вс–Чт · 14:00 — 02:00<br>Пт–Сб · 14:00 — 03:00</small>
           <span class="choice-cta">Выбрать <b>↗</b></span>
         </button>
 
@@ -88,11 +88,12 @@
         </div>
         <div class="hero-hours">
           <div class="hero-hours-title">РЕЖИМ РАБОТЫ</div>
-          <div class="hero-hours-row"><span>Пн–Чт</span><strong>14:00 — 02:00</strong></div>
-          <div class="hero-hours-row"><span>Пт–Вс</span><strong>14:00 — 03:00</strong></div>
+          <div class="hero-hours-row"><span id="heroHoursDayOne">Вс–Чт</span><strong id="heroHoursTimeOne">14:00 — 02:00</strong></div>
+          <div class="hero-hours-row"><span id="heroHoursDayTwo">Пт–Сб</span><strong id="heroHoursTimeTwo">14:00 — 03:00</strong></div>
           <div class="hero-age"><span>18+</span><small>ВХОД ТОЛЬКО ДЛЯ ВЗРОСЛЫХ</small></div>
-        </div>
+        </div>        </div>
       </div>
+      <div class="scroll-cue"><span></span> SCROLL</div>
     </section>
 
     <!-- ATMOSPHERE -->
@@ -135,41 +136,187 @@
       </div>
     </section>
 
-    <!-- QUIET HOUR -->
+    <!-- SPECIAL OFFERS -->
     <section class="quiet" id="quiet">
-      <div class="quiet-image"></div><div class="quiet-overlay"></div>
-      <div class="quiet-content reveal">
-        <div class="section-kicker"><span>03</span> QUIET HOUR</div>
-        <div class="quiet-time">14:00 <i>—</i> 19:00</div>
+      <div class="quiet-image"></div>
+      <div class="quiet-overlay"></div>
+      <div class="quiet-glow" aria-hidden="true"></div>
+
+      <div class="quiet-content promo-set promo-set-ordzhonikidze reveal">
+        <div class="section-kicker"><span>03</span> SPECIAL OFFER</div>
+        <div class="quiet-time">14:00 <i>—</i> 18:00</div>
         <h2>Тихий<br><em>час.</em></h2>
-        <p>Кальян — <strong>1 390 ₽</strong></p>
-        <div class="bonus-box"><span>ТЫ ВЫБИРАЕШЬ БОНУС</span><div><b>Чай</b><b>Печенье</b><b>Усиление кальяна</b></div></div>
+        <div class="promo-price"><small>ЗА</small><strong>1 390 ₽</strong></div>
+        <div class="promo-includes">
+          <span>В КОМПЛЕКТЕ</span>
+          <div>
+            <b>Чай</b><b>Кальян</b><b>Тарелка сладостей</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="quiet-content promo-set promo-set-konstantinova reveal">
+        <div class="section-kicker"><span>03</span> SPECIAL OFFER</div>
+        <div class="quiet-time">до <i>18:00</i></div>
+        <h2>Кальян<br><em>по спеццене.</em></h2>
+        <div class="konst-promo-prices">
+          <div><small>Безтабачная основа</small><strong>990 ₽</strong></div>
+          <div><small>Табачная основа</small><strong>1 190 ₽</strong></div>
+        </div>
+        <div class="promo-includes promo-note">
+          <span>СКИДКА НА КАЛЬЯН</span>
+          <div><b>Смотри кальянное меню</b></div>
+        </div>
       </div>
     </section>
 
     <!-- MENU -->
     <section class="section menu-section" id="menu">
-      <div class="menu-heading reveal"><div><div class="section-kicker"><span>04</span> MENU</div><h2>Выбирай<br><em>своё.</em></h2></div><p>Меню переключается вместе с выбранным адресом.</p></div>
-
       <div class="menu-set menu-set-ordzhonikidze">
-        <div class="menu-tabs" role="tablist">
-          <button class="active" data-filter="all">Всё</button><button data-filter="doner">Донер</button><button data-filter="kutab">Кутабы</button><button data-filter="salads">Салаты</button><button data-filter="soups">Супы</button><button data-filter="other">Остальное</button>
-        </div>
-        <div class="menu-grid">
-          <article class="food-card reveal" data-category="doner"><div class="food-image"><img src="images/doner-meat.jpg" onerror="this.src='images/hero-lounge.jpg'" alt="Донер с мясом"><span>↗</span></div><div class="food-info"><div><h3>Донер с мясом</h3><small>300 г</small></div><strong>600 ₽</strong></div></article>
-          <article class="food-card reveal" data-category="doner"><div class="food-image"><img src="images/doner-chicken.jpg" onerror="this.src='images/hero-lounge.jpg'" alt="Донер с курицей"><span>↗</span></div><div class="food-info"><div><h3>Донер с курицей</h3><small>300 г</small></div><strong>520 ₽</strong></div></article>
-          <article class="food-card reveal" data-category="other"><div class="food-image"><img src="images/burger.jpg" onerror="this.src='images/hero-lounge.jpg'" alt="Гамбургер"><span>↗</span></div><div class="food-info"><div><h3>Гамбургер</h3><small>200 г</small></div><strong>365 ₽</strong></div></article>
-          <article class="food-card reveal" data-category="kutab"><div class="food-image"><img src="images/kutab.jpg" onerror="this.src='images/hero-lounge.jpg'" alt="Кутаб по-кавказски"><span>↗</span></div><div class="food-info"><div><h3>Кутаб по-кавказски</h3><small>2 шт. · 200 г</small></div><strong>550 ₽</strong></div></article>
-          <article class="food-card reveal" data-category="other"><div class="food-image"><img src="images/sandwich.jpg" onerror="this.src='images/hero-lounge.jpg'" alt="Сэндвич с курицей и сыром"><span>↗</span></div><div class="food-info"><div><h3>Сэндвич с курицей и сыром</h3><small>180 г</small></div><strong>510 ₽</strong></div></article>
-          <article class="food-card reveal" data-category="other"><div class="food-image"><img src="images/lavash.jpg" onerror="this.src='images/hero-lounge.jpg'" alt="Лаваш"><span>↗</span></div><div class="food-info"><div><h3>Лаваш</h3><small>90 г</small></div><strong>160 ₽</strong></div></article>
-          <article class="food-card reveal" data-category="soups"><div class="food-image"><img src="images/chicken-noodle-soup.jpg" onerror="this.src='images/hero-lounge.jpg'" alt="Куриный суп с домашней лапшой"><span>↗</span></div><div class="food-info"><div><h3>Куриный суп с домашней лапшой</h3><small>350 г</small></div><strong>450 ₽</strong></div></article>
-          <article class="food-card reveal" data-category="other"><div class="food-image"><img src="images/iziburger.jpg" onerror="this.src='images/hero-lounge.jpg'" alt="Изибургер"><span>↗</span></div><div class="food-info"><div><h3>Изибургер</h3><small>250 г</small></div><strong>455 ₽</strong></div></article>
-          <article class="food-card reveal" data-category="salads"><div class="food-image"><img src="images/greek-salad.jpg" onerror="this.src='images/hero-lounge.jpg'" alt="Салат Греческий"><span>↗</span></div><div class="food-info"><div><h3>Салат «Греческий»</h3><small>300 г</small></div><strong>400 ₽</strong></div></article>
-          <article class="food-card reveal" data-category="salads"><div class="food-image"><img src="images/choban-salad.jpg" onerror="this.src='images/hero-lounge.jpg'" alt="Салат Чобан"><span>↗</span></div><div class="food-info"><div><h3>Салат Чобан</h3><small>300 г</small></div><strong>350 ₽</strong></div></article>
-          <article class="food-card reveal" data-category="salads"><div class="food-image"><img src="images/caesar-chicken.jpg" onerror="this.src='images/hero-lounge.jpg'" alt="Цезарь с курицей"><span>↗</span></div><div class="food-info"><div><h3>Салат «Цезарь» с курицей</h3><small>250 г</small></div><strong>510 ₽</strong></div></article>
-          <article class="food-card reveal" data-category="salads"><div class="food-image"><img src="images/caesar-shrimp.jpg" onerror="this.src='images/hero-lounge.jpg'" alt="Цезарь с креветками"><span>↗</span></div><div class="food-info"><div><h3>Салат «Цезарь» с креветками</h3><small>250 г</small></div><strong>635 ₽</strong></div></article>
-          <article class="food-card reveal" data-category="soups"><div class="food-image"><img src="images/lentil-soup.jpg" onerror="this.src='images/hero-lounge.jpg'" alt="Чечевичный крем-суп"><span>↗</span></div><div class="food-info"><div><h3>Чечевичный крем-суп</h3><small>350 г</small></div><strong>380 ₽</strong></div></article>
-          <article class="food-card reveal" data-category="soups"><div class="food-image"><img src="images/mushroom-soup.jpg" onerror="this.src='images/hero-lounge.jpg'" alt="Грибной крем-суп"><span>↗</span></div><div class="food-info"><div><h3>Грибной крем-суп</h3><small>350 г</small></div><strong>410 ₽</strong></div></article>
+        <div class="konst-menu-shell">
+          <div class="konst-menu-head reveal">
+            <div>
+              <div class="konst-menu-kicker"><span></span> ОРДЖОНИКИДЗЕ, 27 · MENU</div>
+              <h3>Меню <em>вечера.</em></h3>
+              <p>Кальяны, фастфуд, напитки, снеки и десерты — актуальные позиции собраны по разделам.</p>
+            </div>
+            <div class="konst-menu-stamp"><b>M</b><span>18+</span></div>
+          </div>
+
+          <div class="menu-tabs konst-tabs" role="tablist">
+            <button class="active" data-filter="all">Всё меню</button>
+            <button data-filter="kaliany">Кальяны</button>
+            <button data-filter="fastfood">Фастфуд</button>
+            <button data-filter="soups">Супы</button>
+            <button data-filter="drinks">Напитки</button>
+            <button data-filter="coffee">Кофе</button>
+            <button data-filter="snacks">Снеки</button>
+            <button data-filter="desserts">Десерты</button>
+          </div>
+
+          <div class="konst-menu-grid">
+            <article class="konst-menu-card reveal" data-category="kaliany">
+              <div class="konst-card-head"><div><span>01</span><small>HOOKAH</small></div><h4>Классика</h4></div>
+              <ul>
+                <li><span>Lv1 — лёгкий табак<br><small>Чаабака, СтарЛайн</small></span><b>1 390 ₽</b></li>
+                <li><span>Lv2 — средний табак<br><small>Блэк Берн, Мастхэв, Дарксайд</small></span><b>1 390 ₽</b></li>
+                <li><span>Lv3 — тяжёлый табак<br><small>Трофимов, ДМГ</small></span><b>1 600 ₽</b></li>
+              </ul>
+            </article>
+
+            <article class="konst-menu-card reveal" data-category="kaliany">
+              <div class="konst-card-head"><div><span>02</span><small>FRUIT</small></div><h4>Кальян на фруктах</h4></div>
+              <ul>
+                <li><span>Lv1 — грейпфрут</span><b>440 ₽</b></li>
+                <li><span>Lv2 — гранат</span><b>500 ₽</b></li>
+                <li><span>Lv3 — памело</span><b>500 ₽</b></li>
+                <li><span>Lv4 — ананас</span><b>700 ₽</b></li>
+                <li><span>Lv5 — арбуз</span><b>1 000 ₽</b></li>
+              </ul>
+            </article>
+
+            <article class="konst-menu-card reveal" data-category="kaliany">
+              <div class="konst-card-head"><div><span>03</span><small>EXTRA</small></div><h4>Добавки в колбу</h4></div>
+              <ul>
+                <li><span>Молоко</span><b>150 ₽</b></li>
+                <li><span>Сок</span><b>200 ₽</b></li>
+                <li><span>Лимонад</span><b>180 ₽</b></li>
+              </ul>
+            </article>
+
+            <article class="konst-menu-card reveal" data-category="fastfood">
+              <div class="konst-card-head"><div><span>04</span><small>FASTFOOD</small></div><h4>Фастфуд</h4></div>
+              <ul>
+                <li><span>Гамбургер</span><b>400 ₽</b></li>
+                <li><span>Гамбургер острый</span><b>430 ₽</b></li>
+                <li><span>Чизбургер</span><b>450 ₽</b></li>
+                <li><span>Чизбургер острый</span><b>480 ₽</b></li>
+                <li><span>Сэндвич с сыром</span><b>320 ₽</b></li>
+                <li><span>Сэндвич с курицей и сыром</span><b>420 ₽</b></li>
+                <li><span>Картофель фри (90 г) + соус</span><b>280 ₽</b></li>
+                <li><span>Наггетсы (5 шт.) + картофель фри (80 г)</span><b>650 ₽</b></li>
+                <li><span>Крылышки (5 шт.) + картофель фри (80 г)</span><b>600 ₽</b></li>
+              </ul>
+            </article>
+
+            <article class="konst-menu-card reveal" data-category="soups">
+              <div class="konst-card-head"><div><span>05</span><small>SOUP</small></div><h4>Супы</h4></div>
+              <ul>
+                <li><span>Чечевичный крем-суп</span><b>400 ₽</b></li>
+                <li><span>Грибной крем-суп</span><b>450 ₽</b></li>
+                <li><span>Куриный суп</span><b>450 ₽</b></li>
+              </ul>
+            </article>
+
+            <article class="konst-menu-card reveal" data-category="drinks">
+              <div class="konst-card-head"><div><span>06</span><small>SOFT DRINKS</small></div><h4>Напитки б/а</h4></div>
+              <ul>
+                <li><span>Святой источник (газ / не газ)</span><b>100 ₽</b></li>
+                <li><span>Бон Аква стекло (газ / не газ)</span><b>150 ₽</b></li>
+                <li><span>Добрый (1 л) · в ассортименте</span><b>300 ₽</b></li>
+                <li><span>Лимонад фирменный (0,25 л)</span><b>300 ₽</b></li>
+                <li><span>Лимонад (графин, 0,6 л)</span><b>600 ₽</b></li>
+                <li><span>Кола (1 л)</span><b>250 ₽</b></li>
+                <li><span>Кола / Фанта (0,25 л)</span><b>150 ₽</b></li>
+                <li><span>Палли (0,5 л)</span><b>150 ₽</b></li>
+                <li><span>Адреналин (0,45 л / 0,25 л)</span><b>20 ₽ / 150 ₽</b></li>
+                <li><span>Red Bull (0,45 л / 0,25 л)</span><b>270 ₽ / 230 ₽</b></li>
+                <li><span>Burn (0,45 л / 0,33 л)</span><b>220 ₽ / 150 ₽</b></li>
+              </ul>
+            </article>
+
+            <article class="konst-menu-card reveal" data-category="coffee">
+              <div class="konst-card-head"><div><span>07</span><small>COFFEE</small></div><h4>Кофе</h4></div>
+              <ul>
+                <li><span>Американо · 200 мл</span><b>250 ₽</b></li>
+                <li><span>Эспрессо · 30 мл</span><b>250 ₽</b></li>
+                <li><span>Эспрессо двойной</span><b>350 ₽</b></li>
+                <li><span>Бамбл кофе</span><b>300 ₽</b></li>
+                <li><span>Кофе в турке</span><b>350 ₽</b></li>
+              </ul>
+            </article>
+
+            <article class="konst-menu-card reveal" data-category="snacks">
+              <div class="konst-card-head"><div><span>08</span><small>SNACKS</small></div><h4>Снеки</h4></div>
+              <ul>
+                <li><span>Чипсы (140 г)</span><b>300 ₽</b></li>
+                <li><span>Чипсы с лимоном (140 г)</span><b>370 ₽</b></li>
+                <li><span>Сухарики (в ассортименте)</span><b>370 ₽</b></li>
+                <li><span>Орешки в ассортименте · 1 позиция (70 г)</span><b>250 ₽</b></li>
+                <li><span>Орешки в ассортименте · 3 позиции (210 г)</span><b>550 ₽</b></li>
+                <li><span>Фисташки (70 г)</span><b>250 ₽</b></li>
+                <li><span>Сыр косичка с лимоном (100 г)</span><b>300 ₽</b></li>
+              </ul>
+            </article>
+
+            <article class="konst-menu-card reveal" data-category="desserts">
+              <div class="konst-card-head"><div><span>09</span><small>DESSERTS</small></div><h4>Десерты</h4></div>
+              <ul>
+                <li><span>Пахлава бакинская (100 г)</span><b>250 ₽</b></li>
+                <li><span>Пахлава турецкая с мороженым · 2 шт.</span><b>480 ₽</b></li>
+                <li><span>Тарелка печенья (350 г)</span><b>250 ₽</b></li>
+                <li><span>Шоколад (в ассортименте)</span><b>250 ₽</b></li>
+                <li><span>Рахат лукум (150 г)</span><b>150 ₽</b></li>
+                <li><span>Варенье в ассортименте (180 г)</span><b>450 ₽</b></li>
+              </ul>
+            </article>
+
+            <article class="konst-menu-card wide reveal" data-category="drinks">
+              <div class="konst-card-head"><div><span>10</span><small>COCKTAILS</small></div><h4>Коктейли б/а</h4></div>
+              <ul class="two-col-list">
+                <li><span>Мохито классический · 0,25 л / 0,6 л</span><b>250 ₽ / 600 ₽</b></li>
+                <li><span>Мохито клубничный · 0,25 л / 0,6 л</span><b>250 ₽ / 600 ₽</b></li>
+                <li><span>Манго-Маракуйя · 0,25 л / 0,6 л</span><b>250 ₽ / 600 ₽</b></li>
+                <li><span>Лимон-Лайм · 0,25 л / 0,6 л</span><b>250 ₽ / 600 ₽</b></li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="konst-menu-bottom reveal">
+            <span id="menuHoursOne">Вс–Чт · 14:00 — 02:00</span>
+            <strong id="menuHoursTwo">Пт–Сб · 14:00 — 03:00</strong>
+            <em>18+</em>
+          </div>
         </div>
       </div>
 
@@ -179,7 +326,7 @@
             <div>
               <div class="konst-menu-kicker"><span></span> АКАДЕМИКА КОНСТАНТИНОВА · MENU</div>
               <h3>Меню <em>вечера.</em></h3>
-              <p>Кальяны, напитки, сладости и снеки — всё важное собрали в одном месте.</p>
+              <p>Кальяны, напитки, сладости и снеки — всё важное собрано в одном месте.</p>
             </div>
             <div class="konst-menu-stamp"><b>M</b><span>18+</span></div>
           </div>
@@ -199,7 +346,6 @@
                 <li><span>Кальян на табачной основе</span><b>1 190 ₽</b></li>
               </ul>
             </article>
-
             <article class="konst-menu-card reveal" data-category="kaliany">
               <div class="konst-card-head"><div><span>02</span><small>HOOKAH</small></div><h4>Кальяны <i>после 18:00</i></h4></div>
               <ul>
@@ -207,7 +353,6 @@
                 <li><span>Кальян на табачной основе</span><b>1 290 ₽</b></li>
               </ul>
             </article>
-
             <article class="konst-menu-card reveal" data-category="kaliany">
               <div class="konst-card-head"><div><span>03</span><small>EXTRA</small></div><h4>Добавки к кальяну</h4></div>
               <ul>
@@ -215,12 +360,10 @@
                 <li><span>Чаша на фрукте</span><b>690 ₽</b></li>
               </ul>
             </article>
-
             <article class="konst-menu-card reveal" data-category="kaliany">
               <div class="konst-card-head"><div><span>04</span><small>DETAIL</small></div><h4>Дополнительно</h4></div>
               <ul><li><span>Замена чаши</span><b>990 ₽</b></li></ul>
             </article>
-
             <article class="konst-menu-card reveal" data-category="drinks">
               <div class="konst-card-head"><div><span>05</span><small>TEA</small></div><h4>Чай</h4></div>
               <ul>
@@ -230,7 +373,6 @@
                 <li><span>Самовар (варенье, орехи)</span><b>2 000 ₽</b></li>
               </ul>
             </article>
-
             <article class="konst-menu-card reveal" data-category="drinks">
               <div class="konst-card-head"><div><span>06</span><small>COFFEE</small></div><h4>Кофе</h4></div>
               <ul>
@@ -240,7 +382,6 @@
                 <li><span>Американо</span><b>200 ₽</b></li>
               </ul>
             </article>
-
             <article class="konst-menu-card wide reveal" data-category="drinks">
               <div class="konst-card-head"><div><span>07</span><small>SOFT DRINKS</small></div><h4>Холодные напитки</h4></div>
               <ul class="two-col-list">
@@ -256,7 +397,6 @@
                 <li><span>Вода</span><b>100 ₽</b></li>
               </ul>
             </article>
-
             <article class="konst-menu-card reveal" data-category="sweets">
               <div class="konst-card-head"><div><span>08</span><small>SNACKS</small></div><h4>Снеки</h4></div>
               <ul>
@@ -265,7 +405,6 @@
                 <li><span>Чипсы</span><b>300 ₽</b></li>
               </ul>
             </article>
-
             <article class="konst-menu-card reveal" data-category="sweets">
               <div class="konst-card-head"><div><span>09</span><small>SWEETS</small></div><h4>Сладости</h4></div>
               <ul>
@@ -279,12 +418,13 @@
           </div>
 
           <div class="konst-menu-bottom reveal">
-            <span>Пн–Чт · 14:00 — 02:00</span>
-            <strong>Пт–Вс · 14:00 — 03:00</strong>
+            <span id="menuHoursOneK">Пн–Чт · 14:00 — 02:00</span>
+            <strong id="menuHoursTwoK">Пт–Вс · 14:00 — 03:00</strong>
             <em>18+</em>
           </div>
         </div>
       </div>
+    </section>
 
     <!-- LOCATIONS -->
     <section class="section locations" id="locations">
@@ -296,14 +436,14 @@
           <div class="location-top"><span>01</span><small>ПЕРВОЕ ПРОСТРАНСТВО</small></div>
           <div class="location-main">
             <h3>Орджоникидзе,<br><em>27</em></h3>
-            <p>Пн–Чт 14:00 — 02:00<br>Пт–Вс 14:00 — 03:00</p>
+            <p class="location-hours">Вс–Чт · 14:00 — 02:00<br>Пт–Сб · 14:00 — 03:00</p>
           </div>
           <div class="location-actions">
             <div class="map-actions-row">
-              <a class="map-action" href="https://yandex.ru/maps/?text=Орджоникидзе%2C%2027" target="_blank" rel="noopener noreferrer">Яндекс <span>↗</span></a>
+              <a class="map-action" href="https://yandex.ru/maps/-/CXaFQL0r" target="_blank" rel="noopener noreferrer">Яндекс <span>↗</span></a>
               <a class="map-action secondary" href="https://2gis.ru/search/Орджоникидзе%2C%2027" target="_blank" rel="noopener noreferrer">2ГИС <span>↗</span></a>
             </div>
-            <a class="phone-action" href="tel:+79818015577">8 981 801-55-77 <span>↗</span></a>
+            <a class="phone-action" href="tel:+79818015577" data-confirm-call>8 981 801-55-77 <span>↗</span></a>
           </div>
         </article>
 
@@ -311,11 +451,11 @@
           <div class="location-top"><span>02</span><small>НОВОЕ ПРОСТРАНСТВО</small></div>
           <div class="location-main">
             <h3>Академика<br><em>Константинова, 1 к. 1</em></h3>
-            <p>Пн–Чт 14:00 — 02:00<br>Пт–Вс 14:00 — 03:00</p>
+            <p class="location-hours">Пн–Чт · 14:00 — 02:00<br>Пт–Вс · 14:00 — 03:00</p>
           </div>
           <div class="location-actions">
             <div class="map-actions-row">
-              <a class="map-action" href="https://yandex.ru/maps/?text=Академика%20Константинова%2C%201%20к.%201" target="_blank" rel="noopener noreferrer">Яндекс <span>↗</span></a>
+              <a class="map-action" href="https://yandex.ru/maps/-/CXaFUFMH" target="_blank" rel="noopener noreferrer">Яндекс <span>↗</span></a>
               <a class="map-action secondary" href="https://2gis.ru/search/Академика%20Константинова%2C%201%20к.%201" target="_blank" rel="noopener noreferrer">2ГИС <span>↗</span></a>
             </div>
             <a class="phone-action booking-link" href="https://yandex.ru/business/widget/request/company/185627883676" target="_blank" rel="noopener noreferrer">Забронировать онлайн <span>↗</span></a>
@@ -323,19 +463,33 @@
         </article>
       </div>
 
-      <div class="hours-line reveal"><span>ЧАСЫ РАБОТЫ</span><strong>Пн–Чт 14:00 — 02:00 · Пт–Вс 14:00 — 03:00</strong><span>18+</span></div>
+      <div class="hours-line reveal"><span>ЧАСЫ РАБОТЫ</span><strong id="hoursLineText">Вс–Чт 14:00 — 02:00 · Пт–Сб 14:00 — 03:00</strong><span>18+</span></div>
     </section>
 
     <!-- FINAL -->
     <section class="final-cta">
-      <div class="final-bg"></div><div class="final-overlay"></div>
-      <div class="final-content reveal"><div class="section-kicker"><span>06</span> MYSTIC LOUNGE</div><h2>Вечер<br><em>начинается здесь.</em></h2><p>Приходи за атмосферой. Оставайся ради момента.</p><a href="tel:+79818015577" class="btn btn-gold booking-link" id="finalBooking">Забронировать столик <span>↗</span></a></div>
+      <div class="final-bg"></div>
+      <div class="final-overlay"></div>
+      <div class="final-content reveal">
+        <div class="section-kicker"><span>06</span> MYSTIC LOUNGE</div>
+        <div class="final-offer promo-set promo-set-ordzhonikidze">
+          <small>СЕГОДНЯ</small>
+          <h2>Тихий час<br><em>14:00 — 18:00</em></h2>
+          <p><strong>1 390 ₽</strong> · чай · кальян · тарелка сладостей</p>
+        </div>
+        <div class="final-offer promo-set promo-set-konstantinova">
+          <small>ДО 18:00</small>
+          <h2>Кальян<br><em>по спеццене.</em></h2>
+          <p><strong>от 990 ₽</strong> · скидка на кальян до 18:00</p>
+        </div>
+        <a href="tel:+79818015577" class="btn btn-gold booking-link" id="finalBooking">Забронировать <span>↗</span></a>
+      </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="footer-main"><a href="#top" class="footer-logo"><img src="images/logo-mystic.png" alt="Mystic Lounge"></a><div class="footer-links"><a href="#about">Атмосфера</a><a href="#menu">Меню</a><a href="#locations">Адреса</a></div><a href="tel:+79818015577" class="footer-phone">8 981 801-55-77</a></div>
-    <div class="footer-bottom"><span>© 2026 MYSTIC LOUNGE</span><span>14:00 — 03:00</span><span>GOOD EVENINGS ONLY</span></div>
+    <div class="footer-bottom"><span>© 2026 MYSTIC LOUNGE</span><span id="footerHours">Вс–Чт 14:00 — 02:00 · Пт–Сб 14:00 — 03:00</span><span>GOOD EVENINGS ONLY</span></div>
   </footer>
   <script src="script.js"></script>
 </body>

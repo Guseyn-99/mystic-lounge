@@ -1,11 +1,12 @@
+# Local secrets / environment
 .env
 .env.*
 !.env.example
 
+# Generated / local tooling
 node_modules/
 dist/
 build/
-
 .vercel/
 .DS_Store
 Thumbs.db

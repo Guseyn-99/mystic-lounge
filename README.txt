@@ -1,8 +1,19 @@
-MYSTIC LOUNGE — updated project
+MYSTIC LOUNGE — финальная версия
 
-Open index.html locally.
-The first visit opens an address chooser. The selected address is saved in localStorage and can be changed from the header/mobile menu.
-First address booking: +7 981 801-55-77. Second address booking: Yandex online request link from the provided code.
-Hours: 14:00 — 03:00.
+Статический сайт без backend/database.
 
-Update v4: Konstantinova menu redesigned from the supplied menu screenshots; hero facts replaced with weekday schedule and 18+; map navigation buttons added for both addresses.
+Файлы:
+- index.html — разметка и контент
+- style.css — оформление и адаптив
+- script.js — выбор адреса, фильтрация меню, анимации и ссылки
+- images/ — изображения сайта
+
+Адреса:
+- Орджоникидзе, 27
+- Академика Константинова, 1 к. 1
+
+Бронирование:
+- Орджоникидзе: телефон +7 981 801-55-77
+- Академика: анкета Yandex Business
+
+Вход 18+.

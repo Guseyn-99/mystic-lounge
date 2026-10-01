@@ -23,14 +23,24 @@
     ordzhonikidze: {
       short: "Орджоникидзе, 27",
       bookingHref: "tel:+79818015577",
-      bookingText: "Забронировать",
-      bookingTitle: "Забронировать столик"
+      bookingText: "Позвонить",
+      bookingTitle: "Позвонить и забронировать столик",
+      hours: [
+        ["Вс–Чт", "14:00 — 02:00"],
+        ["Пт–Сб", "14:00 — 03:00"]
+      ],
+      hoursLine: "Вс–Чт 14:00 — 02:00 · Пт–Сб 14:00 — 03:00"
     },
     konstantinova: {
       short: "Академика Константинова, 1 к. 1",
       bookingHref: "https://yandex.ru/business/widget/request/company/185627883676",
       bookingText: "Забронировать",
-      bookingTitle: "Забронировать столик онлайн"
+      bookingTitle: "Открыть анкету на бронирование",
+      hours: [
+        ["Пн–Чт", "14:00 — 02:00"],
+        ["Пт–Вс", "14:00 — 03:00"]
+      ],
+      hoursLine: "Пн–Чт 14:00 — 02:00 · Пт–Вс 14:00 — 03:00"
     }
   };
 
@@ -76,6 +86,19 @@
     if (heroLocationText) heroLocationText.textContent = data.short;
     locationCards.forEach(card => card.classList.toggle("active", card.dataset.location === key));
     bookingLinks.forEach(link => setBookingLink(link, data));
+
+    const heroHoursDayOne = document.querySelector("#heroHoursDayOne");
+    const heroHoursTimeOne = document.querySelector("#heroHoursTimeOne");
+    const heroHoursDayTwo = document.querySelector("#heroHoursDayTwo");
+    const heroHoursTimeTwo = document.querySelector("#heroHoursTimeTwo");
+    if (heroHoursDayOne) heroHoursDayOne.textContent = data.hours[0][0];
+    if (heroHoursTimeOne) heroHoursTimeOne.textContent = data.hours[0][1];
+    if (heroHoursDayTwo) heroHoursDayTwo.textContent = data.hours[1][0];
+    if (heroHoursTimeTwo) heroHoursTimeTwo.textContent = data.hours[1][1];
+    const hoursLineText = document.querySelector("#hoursLineText");
+    if (hoursLineText) hoursLineText.textContent = data.hoursLine;
+    const footerHours = document.querySelector("#footerHours");
+    if (footerHours) footerHours.textContent = data.hoursLine;
     if (persist) storeLocation(key);
     closeLocationChooser();
     // Re-run reveal observer for swapped location content.
@@ -96,9 +119,28 @@
   if (saved && LOCATIONS[saved]) setLocation(saved, false);
   else { html.dataset.location = "ordzhonikidze"; openLocationChooser(); }
 
-  // If user clicks a booking link without choosing an address (e.g. first load), open chooser.
+  // Booking links: address first, then the selected destination. For calls, ask for confirmation.
   bookingLinks.forEach(link => link.addEventListener("click", e => {
-    if (!getStoredLocation()) { e.preventDefault(); openLocationChooser(); }
+    if (!getStoredLocation()) {
+      e.preventDefault();
+      openLocationChooser();
+      return;
+    }
+    const currentLocation = html.dataset.location;
+    if (currentLocation === "ordzhonikidze" && LOCATIONS[currentLocation].bookingHref.startsWith("tel:")) {
+      e.preventDefault();
+      if (window.confirm("Позвонить в Mystic Lounge по номеру 8 981 801-55-77?")) {
+        window.location.href = LOCATIONS[currentLocation].bookingHref;
+      }
+    }
+  }));
+
+  // Phone number inside the address card keeps the number visible and uses the same confirmation dialog.
+  document.querySelectorAll("[data-confirm-call]").forEach(link => link.addEventListener("click", e => {
+    e.preventDefault();
+    if (window.confirm("Позвонить в Mystic Lounge по номеру 8 981 801-55-77?")) {
+      window.location.href = link.href;
+    }
   }));
 
   // Mobile nav
@@ -136,33 +178,42 @@
     revealItems.forEach((el,i)=>{el.style.transitionDelay=`${Math.min(i%4,3)*60}ms`;revealObserver.observe(el);});
   } else revealItems.forEach(el=>el.classList.add("visible"));
 
-  // Menu tabs, scoped to each location menu, with a soft filter transition.
+  // Menu tabs, scoped to each location menu, with a real hide/show state and a soft transition.
   document.querySelectorAll(".menu-set").forEach(set=>{
     const tabs=set.querySelectorAll(".menu-tabs button");
-    const cards=set.querySelectorAll("[data-category]");
-    let timers=new Map();
+    const cards=[...set.querySelectorAll("[data-category]")];
+    const timers=new Map();
 
-    tabs.forEach(tab=>tab.addEventListener("click",()=>{
-      tabs.forEach(t=>t.classList.remove("active"));
-      tab.classList.add("active");
-      const filter=tab.dataset.filter;
+    const applyFilter = filter => {
+      cards.forEach(card => {
+        const show = filter === "all" || card.dataset.category === filter;
+        const timer = timers.get(card);
+        if (timer) clearTimeout(timer);
 
-      cards.forEach(card=>{
-        const show=filter==="all" || card.dataset.category===filter;
-        const timer=timers.get(card);
-        if(timer) clearTimeout(timer);
-
-        if(show){
-          card.hidden=false;
-          requestAnimationFrame(()=>card.classList.remove("filter-hidden"));
-        }else{
+        if (show) {
+          card.hidden = false;
+          requestAnimationFrame(() => card.classList.remove("filter-hidden"));
+        } else {
           card.classList.add("filter-hidden");
-          timers.set(card,setTimeout(()=>{
-            if(card.classList.contains("filter-hidden")) card.hidden=true;
-          },280));
+          timers.set(card, setTimeout(() => {
+            if (card.classList.contains("filter-hidden")) card.hidden = true;
+          }, 280));
         }
       });
+    };
+
+    tabs.forEach(tab=>tab.addEventListener("click",()=>{
+      tabs.forEach(t=>{
+        t.classList.remove("active");
+        t.setAttribute("aria-pressed", "false");
+      });
+      tab.classList.add("active");
+      tab.setAttribute("aria-pressed", "true");
+      applyFilter(tab.dataset.filter || "all");
     }));
+
+    const activeTab=set.querySelector(".menu-tabs button.active");
+    if (activeTab) applyFilter(activeTab.dataset.filter || "all");
   });
 
   // Active desktop nav item based on scroll position.
