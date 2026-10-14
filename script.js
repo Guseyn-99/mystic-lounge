@@ -178,43 +178,45 @@
     revealItems.forEach((el,i)=>{el.style.transitionDelay=`${Math.min(i%4,3)*60}ms`;revealObserver.observe(el);});
   } else revealItems.forEach(el=>el.classList.add("visible"));
 
-  // Menu tabs, scoped to each location menu, with a real hide/show state and a soft transition.
+  // Menu tabs — immediate filtering: no timers, no per-card RAF queue.
   document.querySelectorAll(".menu-set").forEach(set=>{
-    const tabs=set.querySelectorAll(".menu-tabs button");
+    const tabs=[...set.querySelectorAll(".menu-tabs button")];
     const cards=[...set.querySelectorAll("[data-category]")];
-    const timers=new Map();
 
     const applyFilter = filter => {
-      cards.forEach(card => {
+      for (const card of cards) {
         const show = filter === "all" || card.dataset.category === filter;
-        const timer = timers.get(card);
-        if (timer) clearTimeout(timer);
-
-        if (show) {
-          card.hidden = false;
-          requestAnimationFrame(() => card.classList.remove("filter-hidden"));
-        } else {
-          card.classList.add("filter-hidden");
-          timers.set(card, setTimeout(() => {
-            if (card.classList.contains("filter-hidden")) card.hidden = true;
-          }, 280));
-        }
-      });
+        card.hidden = !show;
+        card.setAttribute("aria-hidden", String(!show));
+      }
     };
 
     tabs.forEach(tab=>tab.addEventListener("click",()=>{
-      tabs.forEach(t=>{
-        t.classList.remove("active");
-        t.setAttribute("aria-pressed", "false");
-      });
-      tab.classList.add("active");
-      tab.setAttribute("aria-pressed", "true");
+      if (tab.classList.contains("active")) return;
+      for (const t of tabs) {
+        t.classList.toggle("active", t === tab);
+        t.setAttribute("aria-pressed", String(t === tab));
+      }
       applyFilter(tab.dataset.filter || "all");
     }));
 
     const activeTab=set.querySelector(".menu-tabs button.active");
     if (activeTab) applyFilter(activeTab.dataset.filter || "all");
   });
+
+  // Thin gold reading progress — one passive listener, updated through requestAnimationFrame.
+  const scrollProgress=document.querySelector("#scrollProgress");
+  if(scrollProgress){
+    let progressTick=false;
+    const updateProgress=()=>{
+      const max=Math.max(1,document.documentElement.scrollHeight-window.innerHeight);
+      scrollProgress.style.transform=`scaleX(${Math.min(1,Math.max(0,window.scrollY/max))})`;
+      progressTick=false;
+    };
+    window.addEventListener("scroll",()=>{if(!progressTick){progressTick=true;requestAnimationFrame(updateProgress)}},{passive:true});
+    window.addEventListener("resize",updateProgress,{passive:true});
+    updateProgress();
+  }
 
   // Active desktop nav item based on scroll position.
   const sections=document.querySelectorAll("main section[id]");

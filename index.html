@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="theme-obsidian">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#07070a">
   <meta name="description" content="Mystic Lounge — авторские миксы, уютное пространство и вечера без спешки.">
   <title>Mystic Lounge — место, где город остаётся за дверью</title>
+  <link rel="preload" as="image" href="images/hero-mystic-clean.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="images/logo-mystic.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css?v=2">
+  <link rel="stylesheet" href="style.css?v=5-obsidian">
 </head>
 <body>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
   <div class="cursor-glow" aria-hidden="true"></div>
   <div class="noise" aria-hidden="true"></div>
 
@@ -20,7 +23,7 @@
     <div class="location-gate-backdrop" data-close-location></div>
     <div class="location-gate-panel">
       <button class="location-close" id="locationClose" type="button" aria-label="Закрыть">×</button>
-      <div class="gate-brand"><img src="images/logo-mystic.png" alt="Mystic Lounge"></div>
+      <div class="gate-brand"><img src="images/logo-mystic.webp" alt="Mystic Lounge" width="360" height="375" decoding="async"></div>
       <div class="location-gate-kicker"><span></span> WELCOME TO MYSTIC</div>
       <h2 id="locationTitle">Выбери<br><em>своё пространство.</em></h2>
       <p class="location-gate-lead">У нас два места. Выбери адрес, который тебе ближе. После выбора сайт покажет актуальный контент и способ бронирования.</p>
@@ -47,7 +50,7 @@
   </div>
 
   <header class="site-header" id="top">
-    <a href="#top" class="brand"><img src="images/logo-mystic.png" alt="Mystic Lounge"></a>
+    <a href="#top" class="brand"><img src="images/logo-mystic.webp" alt="Mystic Lounge" width="360" height="375" decoding="async"></a>
     <nav class="desktop-nav">
       <a href="#about">Атмосфера</a>
       <a href="#story">История</a>
@@ -106,17 +109,17 @@
 
       <div class="atmo-set atmo-set-ordzhonikidze">
         <div class="atmosphere-grid">
-          <article class="atmo-card large reveal"><img src="images/atmosphere-1.jpg" alt="Атмосфера Mystic Lounge"><div class="atmo-overlay"></div><div class="atmo-top"><span>01</span><i>FLAVOUR</i></div><div class="atmo-copy"><h3>Авторские<br>миксы</h3><p>Сочетания вкусов, которые хочется попробовать ещё раз.</p></div><span class="card-arrow">↗</span></article>
-          <article class="atmo-card reveal"><img src="images/atmosphere-2.jpg" alt="Интерьер Mystic Lounge"><div class="atmo-overlay"></div><div class="atmo-top"><span>02</span><i>MOOD</i></div><div class="atmo-copy"><h3>Мягкий<br>свет</h3><p>Тёплый свет, приглушённая музыка и пространство для своих.</p></div><span class="card-arrow">↗</span></article>
-          <article class="atmo-card reveal"><img src="images/atmosphere-3.jpg" alt="Вечер в Mystic Lounge"><div class="atmo-overlay"></div><div class="atmo-top"><span>03</span><i>MOMENT</i></div><div class="atmo-copy"><h3>Вечера<br>без спешки</h3><p>Для разговоров, встреч и моментов, которые хочется продлить.</p></div><span class="card-arrow">↗</span></article>
+          <article class="atmo-card large reveal"><img src="images/atmosphere-1.webp" alt="Атмосфера Mystic Lounge" width="1100" height="733" loading="lazy" decoding="async"><div class="atmo-overlay"></div><div class="atmo-top"><span>01</span><i>FLAVOUR</i></div><div class="atmo-copy"><h3>Авторские<br>миксы</h3><p>Сочетания вкусов, которые хочется попробовать ещё раз.</p></div></article>
+          <article class="atmo-card reveal"><img src="images/atmosphere-2.webp" alt="Интерьер Mystic Lounge" width="1100" height="733" loading="lazy" decoding="async"><div class="atmo-overlay"></div><div class="atmo-top"><span>02</span><i>MOOD</i></div><div class="atmo-copy"><h3>Мягкий<br>свет</h3><p>Тёплый свет, приглушённая музыка и пространство для своих.</p></div></article>
+          <article class="atmo-card reveal"><img src="images/atmosphere-3.webp" alt="Вечер в Mystic Lounge" width="733" height="1100" loading="lazy" decoding="async"><div class="atmo-overlay"></div><div class="atmo-top"><span>03</span><i>MOMENT</i></div><div class="atmo-copy"><h3>Вечера<br>без спешки</h3><p>Для разговоров, встреч и моментов, которые хочется продлить.</p></div></article>
         </div>
       </div>
 
       <div class="atmo-set atmo-set-konstantinova">
         <div class="atmosphere-grid">
-          <article class="atmo-card large reveal"><img src="images/konstantinova-1.jpg" alt="Интерьер Mystic Lounge — Академика Константинова"><div class="atmo-overlay"></div><div class="atmo-top"><span>01</span><i>FLAVOUR</i></div><div class="atmo-copy"><h3>Авторские<br>миксы</h3><p>Настроение, которое начинается с правильного вкуса.</p></div><span class="card-arrow">↗</span></article>
-          <article class="atmo-card reveal"><img src="images/konstantinova-2.png" alt="Интерьер Mystic Lounge — Академика Константинова"><div class="atmo-overlay"></div><div class="atmo-top"><span>02</span><i>MOOD</i></div><div class="atmo-copy"><h3>Мягкий<br>свет</h3><p>Тёмные оттенки, дым и спокойная атмосфера.</p></div><span class="card-arrow">↗</span></article>
-          <article class="atmo-card reveal"><img src="images/konstantinova-3.png" alt="Зона отдыха Mystic Lounge — Академика Константинова"><div class="atmo-overlay"></div><div class="atmo-top"><span>03</span><i>MOMENT</i></div><div class="atmo-copy"><h3>Вечера<br>без спешки</h3><p>Место, где можно просто остаться ещё ненадолго.</p></div><span class="card-arrow">↗</span></article>
+          <article class="atmo-card large reveal"><img src="images/konstantinova-1.webp" alt="Интерьер Mystic Lounge — Академика Константинова" width="1100" height="619" loading="lazy" decoding="async"><div class="atmo-overlay"></div><div class="atmo-top"><span>01</span><i>FLAVOUR</i></div><div class="atmo-copy"><h3>Авторские<br>миксы</h3><p>Настроение, которое начинается с правильного вкуса.</p></div></article>
+          <article class="atmo-card reveal"><img src="images/konstantinova-2.webp" alt="Интерьер Mystic Lounge — Академика Константинова" width="686" height="912" loading="lazy" decoding="async"><div class="atmo-overlay"></div><div class="atmo-top"><span>02</span><i>MOOD</i></div><div class="atmo-copy"><h3>Мягкий<br>свет</h3><p>Тёмные оттенки, дым и спокойная атмосфера.</p></div></article>
+          <article class="atmo-card reveal"><img src="images/konstantinova-3.webp" alt="Зона отдыха Mystic Lounge — Академика Константинова" width="684" height="914" loading="lazy" decoding="async"><div class="atmo-overlay"></div><div class="atmo-top"><span>03</span><i>MOMENT</i></div><div class="atmo-copy"><h3>Вечера<br>без спешки</h3><p>Место, где можно просто остаться ещё ненадолго.</p></div></article>
         </div>
       </div>
     </section>
@@ -198,7 +201,7 @@
             <article class="konst-menu-card reveal" data-category="kaliany">
               <div class="konst-card-head"><div><span>01</span><small>HOOKAH</small></div><h4>Классика</h4></div>
               <ul>
-                <li><span>Lv1 — лёгкий табак<br><small>Чаабака, СтарЛайн</small></span><b>1 390 ₽</b></li>
+                <li><span>Lv1 — лёгкий табак<br><small>Чабака, СтарЛайн</small></span><b>1 390 ₽</b></li>
                 <li><span>Lv2 — средний табак<br><small>Блэк Берн, Мастхэв, Дарксайд</small></span><b>1 390 ₽</b></li>
                 <li><span>Lv3 — тяжёлый табак<br><small>Трофимов, ДМГ</small></span><b>1 600 ₽</b></li>
               </ul>
@@ -488,9 +491,9 @@
   </main>
 
   <footer class="footer">
-    <div class="footer-main"><a href="#top" class="footer-logo"><img src="images/logo-mystic.png" alt="Mystic Lounge"></a><div class="footer-links"><a href="#about">Атмосфера</a><a href="#menu">Меню</a><a href="#locations">Адреса</a><a href="privacy.html">Политика ПД</a></div><a href="tel:+79818015577" class="footer-phone">8 981 801-55-77</a></div>
+    <div class="footer-main"><a href="#top" class="footer-logo"><img src="images/logo-mystic.webp" alt="Mystic Lounge" width="360" height="375" loading="lazy" decoding="async"></a><div class="footer-links"><a href="#about">Атмосфера</a><a href="#menu">Меню</a><a href="#locations">Адреса</a><a href="privacy.html">Политика ПД</a></div><a href="tel:+79818015577" class="footer-phone">8 981 801-55-77</a></div>
     <div class="footer-bottom"><span>© 2026 MYSTIC LOUNGE</span><span id="footerHours">Вс–Чт 14:00 — 02:00 · Пт–Сб 14:00 — 03:00</span><span>GOOD EVENINGS ONLY</span></div>
   </footer>
-  <script src="/script.js?v=2"></script>
+  <script src="script.js?v=5-obsidian" defer></script>
 </body>
 </html>
